@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": ["airbnb", "prettier"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -36,8 +36,11 @@
     "prettier/prettier": [
       "error",
       {
-        "singleQuote": true,
-        "semi": true
+        "printWidth": 100,
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "semi": true,
+        "singleQuote": true
       }
     ]
   },
