@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Nunito:300,400,700,900|Nunito+Sans|Playfair+Display:400,700,900');
+
+// Define a color variable
+$info: #eaf4fd;
+$info-dark: #daeeff;
+$primary: #1c4b82;
+$primary-dark: #183661;
+$secondary: #dd6b4d;
+$dark: #313848;
+$light: rgb(255, 248, 248);
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  font-size: 2rem;
+  text-align: center;
+  h1 {
+    font-size: 3rem;
+    color: $dark;
+  }
+
+  .inline-wrapper {
+    display: flex;
+    border: 1px solid $info-dark;
+    background: $info;
+    width: 500px;
+    margin: auto;
+    justify-content: space-between;
+    padding: 12px;
+  }
+
+  .button {
+    color: $light;
+    padding: 12px 30px;
+    border-radius: 0;
+    font-weight: 700;
+  }
+
+  .text-input {
+    color: $light;
+    padding: 12px 30px;
+    border-radius: 0;
+    font-weight: 700;
+    width: 80%;
+  }
+
+  .button:hover {
+    background: #1958cc;
+  }
+
+  .btn-primary {
+    background: $primary;
+    border: 1px solid rgba($primary, 0.5);
+  }
+}
+
+a,
+h1,
+h2,
+h3,
+p,
+span {
+  font-family: 'Nunito Sans';
+}

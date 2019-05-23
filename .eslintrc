@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -19,17 +19,30 @@
     "sourceType": "module"
   },
   "rules": {
+    "import/no-named-as-default": 0,
+    "class-methods-use-this": 0,
+    "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "import/prefer-default-export": 0,
+    "react/button-has-type": 0,
+    "react/no-array-index-key": 0,
+    "prefer-promise-reject-errors": 0,
+    "jsx-a11y/label-has-for": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100,
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "semi": true,
+        "singleQuote": true
       }
     ]
   },
-  "plugins": [
-    "react"
-  ]
+  "plugins": ["react", "prettier"]
 }
