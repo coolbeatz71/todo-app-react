@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from './component/common/Button';
+import Input from './component/common/Input';
 
 /**
  * Principal component
@@ -8,13 +10,18 @@ import React, { Component } from 'react';
  */
 class App extends Component {
   state = {
-    text: 'Hello word',
+    text: 'Add',
   };
 
   render() {
     const { text } = this.state;
     return (
-      <h1>{text}</h1>
+      <div className="inline-wrapper">
+        <Input />
+        <Button type="submit" myClass="btn-primary">
+          {text}
+        </Button>
+      </div>
     );
   }
 }

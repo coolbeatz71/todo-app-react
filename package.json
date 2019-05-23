@@ -9,6 +9,18 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --hot --inline --mode development"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint",
+      "pretty-quick --staged",
+      "git add"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coolbeatz71/todo-app-react.git"
@@ -22,7 +34,8 @@
   "homepage": "https://github.com/coolbeatz71/todo-app-react#readme",
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -31,14 +44,23 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "prop-types": "^15.7.2",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"

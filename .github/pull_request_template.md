@@ -6,8 +6,16 @@
 
 #### Any background context you want to provide?
 
+N/A
+
 #### What are the relevant pivotal tracker stories?
+
+N/A
 
 #### Screenshots (if appropriate)
 
+N/A
+
 #### Questions:
+
+N/A
