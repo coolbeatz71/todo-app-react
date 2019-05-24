@@ -4,6 +4,7 @@
 $info: #eaf4fd;
 $info-dark: #daeeff;
 $primary: #1c4b82;
+$danger: #ff3e6d;
 $primary-dark: #183661;
 $secondary: #dd6b4d;
 $dark: #313848;
@@ -21,6 +22,7 @@ $light: rgb(255, 248, 248);
     color: $dark;
   }
 
+  // add todo list
   .row-wrapper {
     display: flex;
     border: 1px solid $info-dark;
@@ -31,6 +33,28 @@ $light: rgb(255, 248, 248);
     padding: 12px;
   }
 
+  // todo items list
+  .items {
+    display: flex;
+    border: 1px solid #f5e1da;
+    background: #f8f0ed;
+    width: 500px;
+    margin: 8px auto;
+    justify-content: space-between;
+    padding: 12px;
+  }
+
+  .row-items {
+    display: flex;
+    border-radius: 0;
+    font-size: 0.9rem;
+    width: 80%;
+    p {
+      margin-left: 12px;
+    }
+  }
+
+  // each todo items
   .column-wrapper {
     border: 1px solid #f1eeeb;
     display: flex;
@@ -41,14 +65,17 @@ $light: rgb(255, 248, 248);
     justify-content: space-around;
   }
 
+  // add todo button
   .button {
     color: $light;
     padding: 12px 30px;
     border-radius: 0;
     font-weight: 700;
     font-size: 0.8rem;
+    cursor: pointer;
   }
 
+  // input for add todo
   .text-input {
     padding: 12px 15px;
     border-radius: 0;
@@ -63,6 +90,68 @@ $light: rgb(255, 248, 248);
   .btn-primary {
     background: $primary;
     border: 1px solid rgba($primary, 0.5);
+  }
+
+  .btn-danger {
+    background: $danger;
+    border: 1px solid rgba($danger, 0.5);
+    padding: 12px 20px !important;
+  }
+
+  .btn-danger:hover {
+    background: #c90a3a !important;
+  }
+
+  // checkbox
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 41px;
+    height: 24px;
+    margin: auto 0;
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+    .slider:before {
+      position: absolute;
+      content: '';
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+    input:checked + .slider {
+      background-color: $secondary;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(19px);
+    }
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
   }
 }
 
