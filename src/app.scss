@@ -21,14 +21,24 @@ $light: rgb(255, 248, 248);
     color: $dark;
   }
 
-  .inline-wrapper {
+  .row-wrapper {
     display: flex;
     border: 1px solid $info-dark;
     background: $info;
     width: 500px;
-    margin: auto;
+    margin: 8px auto;
     justify-content: space-between;
     padding: 12px;
+  }
+
+  .column-wrapper {
+    border: 1px solid #f1eeeb;
+    display: flex;
+    width: 550px;
+    padding: 12px;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .button {
@@ -36,13 +46,13 @@ $light: rgb(255, 248, 248);
     padding: 12px 30px;
     border-radius: 0;
     font-weight: 700;
+    font-size: 0.8rem;
   }
 
   .text-input {
-    color: $light;
-    padding: 12px 30px;
+    padding: 12px 15px;
     border-radius: 0;
-    font-weight: 700;
+    font-size: 0.8rem;
     width: 80%;
   }
 

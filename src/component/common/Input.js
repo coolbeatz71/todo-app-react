@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * button component
  * @param {object} props
+ * @returns {void}
  */
 const Input = ({ placeholder, name, onChange, type, myClass }) => (
   <input
@@ -26,7 +27,7 @@ Input.propTypes = {
 Input.defaultProps = {
   name: '',
   type: 'text',
-  placeholder: 'Enter task to do',
+  placeholder: 'Enter task to the TO-DO list',
   myClass: '',
 };
 

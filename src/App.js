@@ -1,29 +1,12 @@
-import React, { Component } from 'react';
-import Button from './component/common/Button';
-import Input from './component/common/Input';
+import React from 'react';
+import AddTodo from './component/AddTodo';
 
-/**
- * Principal component
- *
- * @class App
- * @extends {Component}
- */
-class App extends Component {
-  state = {
-    text: 'Add',
-  };
-
-  render() {
-    const { text } = this.state;
-    return (
-      <div className="inline-wrapper">
-        <Input />
-        <Button type="submit" myClass="btn-primary">
-          {text}
-        </Button>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div className="column-wrapper">
+      <AddTodo />
+    </div>
+  );
+};
 
 export default App;
