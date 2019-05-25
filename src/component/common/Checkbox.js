@@ -6,31 +6,28 @@ import React from 'react';
  * @returns {void}
  * @param {object} props
  */
-const Checkbox = ({ checked, name, onChange, labelClass, spanClass }) => {
+const Checkbox = props => {
+  const { checked, name, markComplete, labelClass, spanClass } = props;
   return (
-    <label htmlFor="completed" className={labelClass}>
-      <input type="checkbox" name={name} onChange={onChange} checked={checked} />
+    <label htmlFor="complete" onClick={markComplete} className={labelClass}>
+      <input type="checkbox" name={name} checked={checked} />
       <span className={spanClass} />
     </label>
   );
 };
 
 Checkbox.propTypes = {
-  checked: PropTypes.bool,
+  checked: PropTypes.bool.isRequired,
   name: PropTypes.string,
-  onChange: PropTypes.func,
+  markComplete: PropTypes.func.isRequired,
   labelClass: PropTypes.string,
   spanClass: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
-  checked: false,
-  name: 'completed',
+  name: 'complete',
   labelClass: 'switch',
   spanClass: 'slider round',
-  onChange: () => {
-    'button';
-  },
 };
 
 export default Checkbox;

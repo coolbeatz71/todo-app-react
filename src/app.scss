@@ -6,12 +6,13 @@ $info-dark: #daeeff;
 $primary: #1c4b82;
 $danger: #ff3e6d;
 $primary-dark: #183661;
-$secondary: #dd6b4d;
+$secondary: #fd5f00;
 $dark: #313848;
 $light: rgb(255, 248, 248);
 
 * {
   box-sizing: border-box;
+  font-family: 'Quattrocento Sans';
 }
 
 #root {
@@ -47,10 +48,12 @@ $light: rgb(255, 248, 248);
   .row-items {
     display: flex;
     border-radius: 0;
-    font-size: 0.9rem;
-    width: 80%;
+    font-size: 0.8rem;
+    width: 90%;
     p {
       margin-left: 12px;
+      text-align: initial;
+      text-transform: capitalize;
     }
   }
 
@@ -109,6 +112,7 @@ $light: rgb(255, 248, 248);
     width: 41px;
     height: 24px;
     margin: auto 0;
+    cursor: pointer;
     input {
       opacity: 0;
       width: 0;
@@ -143,7 +147,7 @@ $light: rgb(255, 248, 248);
     input:checked + .slider:before {
       -webkit-transform: translateX(26px);
       -ms-transform: translateX(26px);
-      transform: translateX(19px);
+      transform: translateX(17px);
     }
     .slider.round {
       border-radius: 34px;
@@ -153,13 +157,4 @@ $light: rgb(255, 248, 248);
       border-radius: 50%;
     }
   }
-}
-
-a,
-h1,
-h2,
-h3,
-p,
-span {
-  font-family: 'Nunito Sans';
 }
