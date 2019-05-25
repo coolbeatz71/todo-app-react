@@ -29,9 +29,9 @@ class AddTodo extends Component {
    * @returns {void}
    */
   onClick = e => {
+    e.preventDefault();
     const { addTodo } = this.props;
     const { title } = this.state;
-    e.preventDefault();
     addTodo(title);
     this.setState({ title: '' });
   };
@@ -47,7 +47,7 @@ class AddTodo extends Component {
     return (
       <div className="row-wrapper">
         <Input value={title} onChange={this.onChange} />
-        <Button type="submit" onClick={this.onClick} myClass="btn-primary">
+        <Button onClick={this.onClick} myClass="btn-primary">
           {text}
         </Button>
       </div>

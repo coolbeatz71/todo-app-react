@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import AddTodo from './component/AddTodo';
 import Todos from './component/Todos';
-import HttpRequest from './services/HttpRequest';
 
 const getUrl = 'https://jsonplaceholder.typicode.com/todos?_limit=8';
 const deleteUrl = 'https://jsonplaceholder.typicode.com/todos/';
@@ -21,21 +21,33 @@ class App extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    HttpRequest.get(getUrl).then(data => {
-      this.setState({ todos: data });
-    });
+    axios.get(getUrl).then(res => this.setState({ todos: res.data }));
   }
 
-  // Add Todo
+  /**
+   *
+   * Add todo in the server
+   * @param {string} title
+   * @returns {Promise} data
+   * @memberof App
+   */
   addTodo = title => {
     const { todos } = this.state;
-    HttpRequest.post(postUrl, {
-      title,
-      completed: false,
-    }).then(res => this.setState({ todos: [...todos, res.data] }));
+    axios
+      .post(postUrl, {
+        title,
+        completed: false,
+      })
+      .then(res => this.setState({ todos: [...todos, res.data] }));
   };
 
-  // Complete Todo
+  /**
+   *
+   * Complete a task
+   * @param {int} id
+   * @returns {object} todo
+   * @memberof App
+   */
   markComplete = id => {
     const { todos } = this.state;
     this.setState({
@@ -48,12 +60,18 @@ class App extends Component {
     });
   };
 
-  // Delete Todo
+  /**
+   *
+   * Delete a task
+   * @param {int} id
+   * @returns {void}
+   * @memberof App
+   */
   delTodo = id => {
     const { todos } = this.state;
-    HttpRequest.delete(`${deleteUrl}${id}`).then(() =>
-      this.setState({ todos: [...todos.filter(todo => todo.id !== id)] }),
-    );
+    axios
+      .delete(`${deleteUrl}${id}`)
+      .then(() => this.setState({ todos: [...todos.filter(todo => todo.id !== id)] }));
   };
 
   /**
