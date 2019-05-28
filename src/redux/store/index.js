@@ -2,11 +2,11 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import initialState from './initialState';
-import reducers from '../reducers';
+import reducer from '../reducers';
 
 const middleware = [thunk];
 const store = createStore(
-  reducers,
+  reducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware)),
 );
