@@ -9,32 +9,32 @@ export const addTodo = title => dispatch => {
       title,
       completed: false,
     })
-    .then(res => {
-      return dispatch({
+    .then(res =>
+      dispatch({
         type: types.ADD_TODO,
         payload: res.data,
-      });
-    });
+      }),
+    );
 };
 
 export const deleteTodo = id => dispatch => {
   // Delete a todo from the server using its ID
-  axios.delete(`${env.DELETE_URL}${id}`).then(() => {
-    return dispatch({
+  axios.delete(`${env.DELETE_URL}${id}`).then(() =>
+    dispatch({
       type: types.DELETE_TODO,
       payload: id,
-    });
-  });
+    }),
+  );
 };
 
 export const getTodos = () => dispatch => {
   // Get todos from the server
-  axios.get(env.GET_URL).then(res => {
-    return dispatch({
+  axios.get(env.GET_URL).then(res =>
+    dispatch({
       type: types.GET_TODOS,
       payload: res.data,
-    });
-  });
+    }),
+  );
 };
 
 export const checkTodo = payload => ({
