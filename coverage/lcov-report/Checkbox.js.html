@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for Input.js</title>
+    <title>Code coverage report for Checkbox.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> Input.js
+      <a href="index.html">All files</a> Checkbox.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
     <p class="quiet">
@@ -79,10 +79,7 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -92,8 +89,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,7 +105,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -117,43 +112,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import PropTypes from 'prop-types';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import PropTypes from 'prop-types';
+import React from 'react';
 &nbsp;
 /**
- * Input component
- * @param {object} props
+ * Checkbox component
  * @returns {void}
+ * @param {object} props
  */
-const Input = ({ placeholder, name, onChange, type, myClass, value }) =&gt; (
-  &lt;input
-    type={type}
-    name={name}
-    value={value}
-    placeholder={placeholder}
-    onChange={onChange}
-    className={`text-input ${myClass}`}
-  /&gt;
-);
+const Checkbox = props =&gt; {
+  const { checked, name, markComplete, labelClass, spanClass } = props;
+  return (
+    &lt;label htmlFor="complete" onClick={markComplete} className={labelClass}&gt;
+      &lt;input type="checkbox" name={name} checked={checked} /&gt;
+      &lt;span className={spanClass} /&gt;
+    &lt;/label&gt;
+  );
+};
 &nbsp;
-Input.propTypes = {
+Checkbox.propTypes = {
+  checked: PropTypes.bool.isRequired,
   name: PropTypes.string,
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  myClass: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  labelClass: PropTypes.string,
+  spanClass: PropTypes.string,
 };
 &nbsp;
-Input.defaultProps = {
-  name: 'title',
-  type: 'text',
-  placeholder: 'Enter task to the TO-DO list',
-  myClass: '',
+Checkbox.defaultProps = {
+  name: 'complete',
+  labelClass: 'switch',
+  spanClass: 'slider round',
 };
 &nbsp;
-export default Input;
+export default Checkbox;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
