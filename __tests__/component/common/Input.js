@@ -6,7 +6,7 @@ const props = {
   value: 'just for testing',
   onChange: jest.fn(),
 };
-describe('Input.jsx', () => {
+describe('Input.js', () => {
   test('should render the input component', () => {
     const wrapper = shallow(<Input {...props} />);
 
