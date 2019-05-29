@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559157521749" clover="3.2.0">
-  <project timestamp="1559157521749" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2" elements="11" coveredelements="10" complexity="0" loc="8" ncloc="8" packages="1" files="2" classes="2"/>
+<coverage generated="1559160441863" clover="3.2.0">
+  <project timestamp="1559160441863" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3" elements="17" coveredelements="16" complexity="0" loc="13" ncloc="13" packages="1" files="3" classes="3"/>
     <file name="Button.js" path="/Users/mutombojean-vincent/Desktop/projects/todo-app-react/src/component/common/Button.js">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <line num="9" count="1" type="stmt"/>
       <line num="10" count="1" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
       <line num="23" count="1" type="stmt"/>
+    </file>
+    <file name="Checkbox.js" path="/Users/mutombojean-vincent/Desktop/projects/todo-app-react/src/component/common/Checkbox.js">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
     </file>
     <file name="Input.js" path="/Users/mutombojean-vincent/Desktop/projects/todo-app-react/src/component/common/Input.js">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
