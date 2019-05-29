@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Input.js should render the input component 1`] = `ShallowWrapper {}`;
+
 exports[`Input.jsx should render the input component 1`] = `ShallowWrapper {}`;
