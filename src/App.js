@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import AddTodo from './component/AddTodo';
 import Todos from './component/Todos';
 
-const getUrl = 'https://jsonplaceholder.typicode.com/todos?_limit=8';
-const deleteUrl = 'https://jsonplaceholder.typicode.com/todos/';
-const postUrl = 'https://jsonplaceholder.typicode.com/todos';
+import { getTodos, addTodo, deleteTodo, checkTodo } from './redux/actions';
 
 /**
  * The principal component
  * @class App
  */
-class App extends Component {
-  state = {
-    todos: [],
-  };
-
+export class App extends Component {
+  // const { todos, onAddTodo, onDeleteTodo, onGetTodos } = this.props;
   /**
    * execute when the component mount
    * @returns {void}
    */
   componentDidMount() {
-    axios.get(getUrl).then(res => this.setState({ todos: res.data }));
+    const { onGetTodos } = this.props;
+    onGetTodos();
   }
 
   /**
@@ -32,13 +29,8 @@ class App extends Component {
    * @memberof App
    */
   addTodo = title => {
-    const { todos } = this.state;
-    axios
-      .post(postUrl, {
-        title,
-        completed: false,
-      })
-      .then(res => this.setState({ todos: [...todos, res.data] }));
+    const { onAddTodo } = this.props;
+    onAddTodo(title);
   };
 
   /**
@@ -49,15 +41,8 @@ class App extends Component {
    * @memberof App
    */
   markComplete = id => {
-    const { todos } = this.state;
-    this.setState({
-      todos: todos.map(todo => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed;
-        }
-        return todo;
-      }),
-    });
+    const { onMarkComplete } = this.props;
+    onMarkComplete(id);
   };
 
   /**
@@ -68,10 +53,8 @@ class App extends Component {
    * @memberof App
    */
   delTodo = id => {
-    const { todos } = this.state;
-    axios
-      .delete(`${deleteUrl}${id}`)
-      .then(() => this.setState({ todos: [...todos.filter(todo => todo.id !== id)] }));
+    const { onDeleteTodo } = this.props;
+    onDeleteTodo(id);
   };
 
   /**
@@ -81,7 +64,7 @@ class App extends Component {
    * @memberof App
    */
   render() {
-    const { todos } = this.state;
+    const { todos } = this.props;
     return (
       <div className="column-wrapper">
         <AddTodo addTodo={this.addTodo} />
@@ -91,4 +74,29 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  todos: PropTypes.array.isRequired,
+  onGetTodos: PropTypes.func.isRequired,
+  onAddTodo: PropTypes.func.isRequired,
+  onDeleteTodo: PropTypes.func.isRequired,
+  onMarkComplete: PropTypes.func.isRequired,
+};
+
+// map the state to props
+const mapStateToProps = state => ({
+  todos: state.todos,
+});
+
+// map Dispatch functions to props
+const mapDispatchToProps = dispatch => ({
+  onGetTodos: () => dispatch(getTodos()),
+  onAddTodo: title => dispatch(addTodo(title)),
+  onDeleteTodo: id => dispatch(deleteTodo(id)),
+  onMarkComplete: id => dispatch(checkTodo(id)),
+});
+
+// connect App to redux
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
