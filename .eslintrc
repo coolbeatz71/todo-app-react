@@ -5,7 +5,8 @@
   "env": {
     "browser": true,
     "es6": true,
-    "mocha": true
+    "mocha": true,
+    "jest": true
   },
   "globals": {
     "Atomics": "readonly",
