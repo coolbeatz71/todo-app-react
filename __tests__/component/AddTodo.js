@@ -1,12 +1,12 @@
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 import AddTodo from '../../src/component/AddTodo';
-import Button from '../../src/component/common/Button';
 
 let wrapper;
+const e = { preventDefault: jest.fn() };
 const props = {
   addTodo: jest.fn(),
-  onClick: jest.fn(),
+  onClick: jest.fn(e),
 };
 describe('AddTodo component', () => {
   beforeEach(() => {
@@ -29,16 +29,8 @@ describe('AddTodo component', () => {
   });
 
   it('should trigger Button click`', () => {
-    const title = 'Title for testing again';
-    wrapper.setState({
-      title,
-    });
-
-    wrapper.find('Input').simulate('change', { target: { value: title } });
-    const btnWrap = shallow(<Button {...props}>Add</Button>);
-
-    btnWrap.find('button').simulate('click');
-    expect(wrapper.state('title')).toBe(title);
-    expect(props.onClick).toHaveBeenCalled();
+    wrapper = shallow(<AddTodo {...props} />);
+    wrapper.find('Button').simulate('click', e);
+    expect(e.preventDefault).toHaveBeenCalled();
   });
 });

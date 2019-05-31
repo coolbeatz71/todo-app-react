@@ -61,7 +61,8 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-promise-middleware": "^6.1.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sinon": "^7.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
