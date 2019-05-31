@@ -15,8 +15,8 @@ const Button = ({ children, onClick, type, disabled, myClass }) => (
 Button.propTypes = {
   type: PropTypes.string,
   children: PropTypes.any.isRequired,
+  onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func,
   myClass: PropTypes.string,
 };
 
@@ -24,9 +24,6 @@ Button.defaultProps = {
   type: 'button',
   disabled: false,
   myClass: '',
-  onClick: () => {
-    'button';
-  },
 };
 
 export default Button;

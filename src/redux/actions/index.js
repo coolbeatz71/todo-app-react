@@ -17,12 +17,12 @@ export const addTodo = title => dispatch => {
     );
 };
 
-export const deleteTodo = id => dispatch => {
+export const deleteTodo = payload => dispatch => {
   // Delete a todo from the server using its ID
-  axios.delete(`${env.DELETE_URL}${id}`).then(() =>
+  axios.delete(`${env.DELETE_URL}${payload}`).then(() =>
     dispatch({
       type: types.DELETE_TODO,
-      payload: id,
+      payload,
     }),
   );
 };
