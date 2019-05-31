@@ -11,7 +11,6 @@ import { getTodos, addTodo, deleteTodo, checkTodo } from './redux/actions';
  * @class App
  */
 export class App extends Component {
-  // const { todos, onAddTodo, onDeleteTodo, onGetTodos } = this.props;
   /**
    * execute when the component mount
    * @returns {void}
@@ -83,12 +82,12 @@ App.propTypes = {
 };
 
 // map the state to props
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   todos: state.todos,
 });
 
 // map Dispatch functions to props
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onGetTodos: () => dispatch(getTodos()),
   onAddTodo: title => dispatch(addTodo(title)),
   onDeleteTodo: id => dispatch(deleteTodo(id)),
