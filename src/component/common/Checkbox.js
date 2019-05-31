@@ -10,7 +10,7 @@ const Checkbox = props => {
   const { checked, name, markComplete, labelClass, spanClass } = props;
   return (
     <label htmlFor="complete" onClick={markComplete} className={labelClass}>
-      <input type="checkbox" name={name} checked={checked} />
+      <input type="checkbox" name={name} checked={checked} onChange={markComplete} />
       <span className={spanClass} />
     </label>
   );
