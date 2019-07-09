@@ -9,6 +9,7 @@
     ]
   },
   "scripts": {
+    "start:heroku": "node server.js",
     "test": "jest --coverage --forceExit --detectOpenHandles",
     "coveralls": "jest --detectOpenHandles --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "npx eslint ./src/**/*.js",
